@@ -9,6 +9,12 @@ export const Route = createFileRoute("/umrah-packages")({
       { name: "description", content: "Customized Umrah packages from Pakistan with fastest visa processing, comfortable hotels in Makkah & Madinah, and VIP transport." },
       { property: "og:title", content: "Umrah Packages | Guzel Travels" },
       { property: "og:description", content: "Spiritual Umrah journeys with visa, transport, hotel and air ticket included." },
+      { property: "og:url", content: "/umrah-packages" },
+      { name: "twitter:title", content: "Umrah Packages | Guzel Travels" },
+      { name: "twitter:description", content: "Spiritual Umrah journeys with visa, transport, hotel and air ticket included." },
+    ],
+    links: [
+      { rel: "canonical", href: "/umrah-packages" },
     ],
   }),
   component: UmrahPage,
