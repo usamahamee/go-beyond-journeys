@@ -9,6 +9,12 @@ export const Route = createFileRoute("/rent-a-car")({
       { name: "description", content: "Affordable & luxury car rentals in Lahore with experienced drivers. Honda Civic, Toyota Prado, Land Cruiser, Audi A6, Corolla Altis and more." },
       { property: "og:title", content: "Rent A Car in Lahore | Guzel Travels" },
       { property: "og:description", content: "Luxury & economical car rentals in Lahore with skilled drivers." },
+      { property: "og:url", content: "/rent-a-car" },
+      { name: "twitter:title", content: "Rent A Car in Lahore | Guzel Travels" },
+      { name: "twitter:description", content: "Luxury & economical car rentals in Lahore with skilled drivers." },
+    ],
+    links: [
+      { rel: "canonical", href: "/rent-a-car" },
     ],
   }),
   component: RentPage,

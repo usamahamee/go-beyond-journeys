@@ -10,6 +10,12 @@ export const Route = createFileRoute("/contact")({
       { name: "description", content: "Get in touch with Guzel Travels in Lahore for flight bookings, visa, Umrah and car rental. Call +92 302 1400045 or email info@guzeltravels.com." },
       { property: "og:title", content: "Contact Guzel Travels" },
       { property: "og:description", content: "Lahore-based travel agency. Call, email or WhatsApp us — we reply within 24 hours." },
+      { property: "og:url", content: "/contact" },
+      { name: "twitter:title", content: "Contact Guzel Travels" },
+      { name: "twitter:description", content: "Lahore-based travel agency. Call, email or WhatsApp us — we reply within 24 hours." },
+    ],
+    links: [
+      { rel: "canonical", href: "/contact" },
     ],
   }),
   component: ContactPage,

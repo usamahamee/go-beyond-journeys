@@ -9,6 +9,12 @@ export const Route = createFileRoute("/flight-booking")({
       { name: "description", content: "Book cheap domestic and international flights from Pakistan with Guzel Travels. Compare airlines, find the best fares and travel with confidence." },
       { property: "og:title", content: "Flight Booking | Guzel Travels" },
       { property: "og:description", content: "Cheap domestic and international flights from Lahore, Karachi and Islamabad." },
+      { property: "og:url", content: "/flight-booking" },
+      { name: "twitter:title", content: "Flight Booking | Guzel Travels" },
+      { name: "twitter:description", content: "Cheap domestic and international flights from Lahore, Karachi and Islamabad." },
+    ],
+    links: [
+      { rel: "canonical", href: "/flight-booking" },
     ],
   }),
   component: FlightPage,

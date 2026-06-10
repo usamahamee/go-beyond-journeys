@@ -11,6 +11,12 @@ export const Route = createFileRoute("/")({
       { name: "description", content: "Lahore-based travel agency offering flight booking, visa consultancy, Umrah packages and car rentals. 500+ projects, 5+ years of trusted service." },
       { property: "og:title", content: "Guzel Travels — Restart Your Traveling With Confidence" },
       { property: "og:description", content: "Flight booking, visa, Umrah packages and car rentals in Lahore." },
+      { property: "og:url", content: "/" },
+      { name: "twitter:title", content: "Guzel Travels — Restart Your Traveling With Confidence" },
+      { name: "twitter:description", content: "Flight booking, visa, Umrah packages and car rentals in Lahore." },
+    ],
+    links: [
+      { rel: "canonical", href: "/" },
     ],
   }),
   component: HomePage,

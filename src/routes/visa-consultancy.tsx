@@ -9,6 +9,12 @@ export const Route = createFileRoute("/visa-consultancy")({
       { name: "description", content: "Trusted visa consultants in Lahore for visit visas, study, employment and skilled immigration to UK, EU, USA, Canada, Australia, New Zealand and Turkey." },
       { property: "og:title", content: "Visa Consultancy | Guzel Travels" },
       { property: "og:description", content: "Visit visas and skilled immigration assistance for Pakistanis." },
+      { property: "og:url", content: "/visa-consultancy" },
+      { name: "twitter:title", content: "Visa Consultancy | Guzel Travels" },
+      { name: "twitter:description", content: "Visit visas and skilled immigration assistance for Pakistanis." },
+    ],
+    links: [
+      { rel: "canonical", href: "/visa-consultancy" },
     ],
   }),
   component: VisaPage,
