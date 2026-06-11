@@ -11,6 +11,7 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as VisaConsultancyRouteImport } from './routes/visa-consultancy'
 import { Route as UmrahPackagesRouteImport } from './routes/umrah-packages'
+import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as RentACarRouteImport } from './routes/rent-a-car'
 import { Route as FlightBookingRouteImport } from './routes/flight-booking'
 import { Route as ContactRouteImport } from './routes/contact'
@@ -24,6 +25,11 @@ const VisaConsultancyRoute = VisaConsultancyRouteImport.update({
 const UmrahPackagesRoute = UmrahPackagesRouteImport.update({
   id: '/umrah-packages',
   path: '/umrah-packages',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
+  id: '/sitemap.xml',
+  path: '/sitemap.xml',
   getParentRoute: () => rootRouteImport,
 } as any)
 const RentACarRoute = RentACarRouteImport.update({
@@ -52,6 +58,7 @@ export interface FileRoutesByFullPath {
   '/contact': typeof ContactRoute
   '/flight-booking': typeof FlightBookingRoute
   '/rent-a-car': typeof RentACarRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
   '/umrah-packages': typeof UmrahPackagesRoute
   '/visa-consultancy': typeof VisaConsultancyRoute
 }
@@ -60,6 +67,7 @@ export interface FileRoutesByTo {
   '/contact': typeof ContactRoute
   '/flight-booking': typeof FlightBookingRoute
   '/rent-a-car': typeof RentACarRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
   '/umrah-packages': typeof UmrahPackagesRoute
   '/visa-consultancy': typeof VisaConsultancyRoute
 }
@@ -69,6 +77,7 @@ export interface FileRoutesById {
   '/contact': typeof ContactRoute
   '/flight-booking': typeof FlightBookingRoute
   '/rent-a-car': typeof RentACarRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
   '/umrah-packages': typeof UmrahPackagesRoute
   '/visa-consultancy': typeof VisaConsultancyRoute
 }
@@ -79,6 +88,7 @@ export interface FileRouteTypes {
     | '/contact'
     | '/flight-booking'
     | '/rent-a-car'
+    | '/sitemap.xml'
     | '/umrah-packages'
     | '/visa-consultancy'
   fileRoutesByTo: FileRoutesByTo
@@ -87,6 +97,7 @@ export interface FileRouteTypes {
     | '/contact'
     | '/flight-booking'
     | '/rent-a-car'
+    | '/sitemap.xml'
     | '/umrah-packages'
     | '/visa-consultancy'
   id:
@@ -95,6 +106,7 @@ export interface FileRouteTypes {
     | '/contact'
     | '/flight-booking'
     | '/rent-a-car'
+    | '/sitemap.xml'
     | '/umrah-packages'
     | '/visa-consultancy'
   fileRoutesById: FileRoutesById
@@ -104,6 +116,7 @@ export interface RootRouteChildren {
   ContactRoute: typeof ContactRoute
   FlightBookingRoute: typeof FlightBookingRoute
   RentACarRoute: typeof RentACarRoute
+  SitemapDotxmlRoute: typeof SitemapDotxmlRoute
   UmrahPackagesRoute: typeof UmrahPackagesRoute
   VisaConsultancyRoute: typeof VisaConsultancyRoute
 }
@@ -122,6 +135,13 @@ declare module '@tanstack/react-router' {
       path: '/umrah-packages'
       fullPath: '/umrah-packages'
       preLoaderRoute: typeof UmrahPackagesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/sitemap.xml': {
+      id: '/sitemap.xml'
+      path: '/sitemap.xml'
+      fullPath: '/sitemap.xml'
+      preLoaderRoute: typeof SitemapDotxmlRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/rent-a-car': {
@@ -160,19 +180,10 @@ const rootRouteChildren: RootRouteChildren = {
   ContactRoute: ContactRoute,
   FlightBookingRoute: FlightBookingRoute,
   RentACarRoute: RentACarRoute,
+  SitemapDotxmlRoute: SitemapDotxmlRoute,
   UmrahPackagesRoute: UmrahPackagesRoute,
   VisaConsultancyRoute: VisaConsultancyRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
-
-import type { getRouter } from './router.tsx'
-import type { startInstance } from './start.ts'
-declare module '@tanstack/react-start' {
-  interface Register {
-    ssr: true
-    router: Awaited<ReturnType<typeof getRouter>>
-    config: Awaited<ReturnType<typeof startInstance.getOptions>>
-  }
-}
