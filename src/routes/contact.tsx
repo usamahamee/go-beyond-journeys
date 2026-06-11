@@ -2,6 +2,9 @@ import { createFileRoute } from "@tanstack/react-router";
 import { Phone, Mail, MapPin } from "lucide-react";
 import { QuoteForm } from "@/components/site/QuoteForm";
 import { Reveal } from "@/components/site/Reveal";
+import { PageHero } from "@/components/site/PageHero";
+import heroContact from "@/assets/hero-contact.jpg";
+
 
 export const Route = createFileRoute("/contact")({
   head: () => ({
@@ -24,15 +27,14 @@ export const Route = createFileRoute("/contact")({
 function ContactPage() {
   return (
     <>
-      <section className="hero">
-        <div className="mx-auto max-w-7xl px-6 py-20 md:py-28 text-center">
-          <p className="tagline text-accent mb-3">Get In Touch</p>
-          <h1 className="hero-title mb-5">Contact Us</h1>
-          <p className="font-subhead text-xl text-white/85 max-w-2xl mx-auto">
-            We're here every step of the journey. Reach us by call, WhatsApp, email — or drop into our Lahore offices.
-          </p>
-        </div>
-      </section>
+      <PageHero
+        image={heroContact}
+        alt="Elegant travel concierge desk with vintage globe and warm lamp"
+        kicker="Get In Touch"
+        title="Contact Us"
+        subtitle="We're here every step of the journey. Reach us by call, WhatsApp, email — or drop into our Lahore offices."
+      />
+
 
       <section className="py-20">
         <div className="mx-auto max-w-7xl px-6">

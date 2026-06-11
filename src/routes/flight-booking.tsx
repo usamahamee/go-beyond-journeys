@@ -1,6 +1,9 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { Plane, Globe2, MapPin, ArrowRight } from "lucide-react";
 import { Reveal } from "@/components/site/Reveal";
+import { PageHero } from "@/components/site/PageHero";
+import heroFlight from "@/assets/hero-flight.jpg";
+
 
 export const Route = createFileRoute("/flight-booking")({
   head: () => ({
@@ -26,15 +29,16 @@ const international = ["Emirates", "Qatar Airways", "Etihad", "Turkish Airlines"
 function FlightPage() {
   return (
     <>
-      <section className="hero">
-        <div className="mx-auto max-w-7xl px-6 py-20 md:py-28 text-center">
-          <p className="tagline text-accent mb-3">Flight Booking</p>
-          <h1 className="hero-title mb-5">Cheap Flights<br />With Guzeltravels.com</h1>
-          <p className="font-subhead text-xl text-white/85 max-w-2xl mx-auto">
-            Hassle-free e-ticketing, the best fares, and real-time travel support across Pakistan and the world.
-          </p>
-        </div>
-      </section>
+      <PageHero
+        image={heroFlight}
+        alt="Airplane flying above golden sunset clouds"
+        kicker="Flight Booking"
+        title={<>Cheap Flights<br />With Guzeltravels.com</>}
+        subtitle="Hassle-free e-ticketing, the best fares, and real-time travel support across Pakistan and the world."
+      >
+        <Link to="/contact" className="btn btn--accent">Book a Flight <ArrowRight className="h-4 w-4" /></Link>
+      </PageHero>
+
 
       <section className="py-20">
         <div className="mx-auto max-w-7xl px-6 grid lg:grid-cols-2 gap-12 items-start">

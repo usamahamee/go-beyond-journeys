@@ -1,6 +1,9 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { FileCheck2, Globe, ArrowRight } from "lucide-react";
 import { Reveal } from "@/components/site/Reveal";
+import { PageHero } from "@/components/site/PageHero";
+import heroVisa from "@/assets/hero-visa.jpg";
+
 
 export const Route = createFileRoute("/visa-consultancy")({
   head: () => ({
@@ -25,15 +28,16 @@ const countries = ["UK", "European Union", "Australia", "New Zealand", "Canada",
 function VisaPage() {
   return (
     <>
-      <section className="hero">
-        <div className="mx-auto max-w-7xl px-6 py-20 md:py-28 text-center">
-          <p className="tagline text-accent mb-3">Visa Services</p>
-          <h1 className="hero-title mb-5">Visa Consultancy</h1>
-          <p className="font-subhead text-xl text-white/85 max-w-2xl mx-auto">
-            Your trusted immigration consultants in Lahore for visit visas, study, employment & skilled migration.
-          </p>
-        </div>
-      </section>
+      <PageHero
+        image={heroVisa}
+        alt="World map with passport and visa stamps"
+        kicker="Visa Services"
+        title="Visa Consultancy"
+        subtitle="Your trusted immigration consultants in Lahore for visit visas, study, employment & skilled migration."
+      >
+        <Link to="/contact" className="btn btn--accent">Book An Appointment <ArrowRight className="h-4 w-4" /></Link>
+      </PageHero>
+
 
       <section className="py-20">
         <div className="mx-auto max-w-7xl px-6 grid lg:grid-cols-2 gap-12 items-start">
