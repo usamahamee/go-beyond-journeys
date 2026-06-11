@@ -43,10 +43,8 @@ export function Header() {
       <div className="mx-auto max-w-7xl px-6">
         <div className="flex h-20 items-center justify-between">
           {/* Logo */}
-          <Link to="/" className="flex items-center gap-2" onClick={() => setOpen(false)}>
-            <div className="grid h-11 w-11 place-items-center rounded-md bg-accent text-primary font-hero font-bold text-xl">
-              G
-            </div>
+          <Link to="/" className="flex items-center gap-3" onClick={() => setOpen(false)}>
+            <img src="/gts-logo.svg" alt="Guzel Travels" className="h-12 w-auto" />
             <div className="flex flex-col leading-none">
               <span className="font-hero font-bold text-white text-lg tracking-[0.15em]">
                 GUZEL

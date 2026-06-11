@@ -1,5 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { Plane, FileCheck2, Compass, Car, ArrowRight, ShieldCheck, Award, Headset } from "lucide-react";
+import { Plane, FileCheck2, Compass, Car, ArrowRight, ShieldCheck, Award, Headset, Phone, Mail, MapPin } from "lucide-react";
 import { QuoteForm } from "@/components/site/QuoteForm";
 import { Reveal } from "@/components/site/Reveal";
 import { FAQ } from "@/components/site/FAQ";
@@ -154,12 +154,79 @@ function HomePage() {
       <section className="bg-surface py-20 md:py-28">
         <div className="mx-auto max-w-7xl px-6 grid lg:grid-cols-2 gap-12">
           <Reveal>
-            <QuoteForm />
+            <QuoteForm subject="Quote Request - Guzel Travels" />
           </Reveal>
           <Reveal delay={120}>
             <p className="tagline mb-2">Learn More From</p>
             <h2 className="section-title mb-8">Frequently Asked Questions</h2>
             <FAQ items={faq} />
+          </Reveal>
+        </div>
+      </section>
+
+      {/* CONTACT US CTA */}
+      <section className="bg-primary text-white py-16 md:py-20">
+        <div className="mx-auto max-w-7xl px-6">
+          <Reveal>
+            <div className="text-center mb-12">
+              <p className="tagline text-accent mb-2">Available 24/7</p>
+              <h2 className="section-title text-white mb-4">Need Direct Assistance?</h2>
+              <p className="font-subhead text-lg text-white/80 max-w-2xl mx-auto mb-8">
+                Our dedicated team is ready to help you with flight bookings, visa processing, Umrah packages, and car rentals. Get in touch with us via phone, email, or visit our office.
+              </p>
+            </div>
+          </Reveal>
+
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-10">
+            <Reveal>
+              <div className="flex gap-5">
+                <div className="grid h-12 w-12 shrink-0 place-items-center rounded-lg bg-accent text-primary">
+                  <Phone className="h-6 w-6" />
+                </div>
+                <div>
+                  <h3 className="font-heading text-lg font-bold mb-1">Call Us</h3>
+                  <a href="tel:+923021400045" className="text-white/80 hover:text-accent transition font-body">
+                    +92 302 1400045
+                  </a>
+                </div>
+              </div>
+            </Reveal>
+
+            <Reveal delay={100}>
+              <div className="flex gap-5">
+                <div className="grid h-12 w-12 shrink-0 place-items-center rounded-lg bg-accent text-primary">
+                  <Mail className="h-6 w-6" />
+                </div>
+                <div>
+                  <h3 className="font-heading text-lg font-bold mb-1">Email Us</h3>
+                  <a href="mailto:info@guzeltravels.com" className="text-white/80 hover:text-accent transition font-body">
+                    info@guzeltravels.com
+                  </a>
+                </div>
+              </div>
+            </Reveal>
+
+            <Reveal delay={200}>
+              <div className="flex gap-5">
+                <div className="grid h-12 w-12 shrink-0 place-items-center rounded-lg bg-accent text-primary">
+                  <MapPin className="h-6 w-6" />
+                </div>
+                <div>
+                  <h3 className="font-heading text-lg font-bold mb-1">Visit Us</h3>
+                  <Link to="/contact" className="text-white/80 hover:text-accent transition font-body inline-flex items-center gap-1">
+                    View Offices <ArrowRight className="h-3 w-3" />
+                  </Link>
+                </div>
+              </div>
+            </Reveal>
+          </div>
+
+          <Reveal delay={300}>
+            <div className="text-center">
+              <Link to="/contact" className="btn btn--accent">
+                Go to Contact Page <ArrowRight className="h-4 w-4" />
+              </Link>
+            </div>
           </Reveal>
         </div>
       </section>

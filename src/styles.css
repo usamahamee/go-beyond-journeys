@@ -197,6 +197,39 @@
   display: block;
 }
 
+/* === FORM RESULT MESSAGES ============================================== */
+.form-result {
+  margin-top: 1rem;
+  padding: 0.75rem 1rem;
+  border-radius: var(--radius-sm);
+  font: 400 0.95rem var(--font-body);
+  display: none;
+  animation: slideInUp 0.3s ease;
+}
+.form-result:not(:empty) {
+  display: block;
+}
+.form-result.success {
+  background: oklch(0.92 0.05 130);
+  color: oklch(0.35 0.1 130);
+  border: 1px solid oklch(0.85 0.08 130);
+}
+.form-result.error {
+  background: oklch(0.92 0.05 20);
+  color: oklch(0.45 0.1 20);
+  border: 1px solid oklch(0.85 0.08 20);
+}
+@keyframes slideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 /* === HERO BANNER ======================================================= */
 .hero {
   position: relative;

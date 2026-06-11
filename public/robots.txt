@@ -1,4 +1,8 @@
 User-agent: *
 Allow: /
+Disallow: /admin/
 
-Sitemap: https://go-beyond-journeys.lovable.app/sitemap.xml
+Sitemap: https://guzel-travels.com/sitemap.xml
+
+# Crawl delay (in seconds)
+Crawl-delay: 1

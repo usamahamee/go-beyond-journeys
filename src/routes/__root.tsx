@@ -10,7 +10,6 @@ import {
 import { useEffect, type ReactNode } from "react";
 
 import appCss from "../styles.css?url";
-import { reportLovableError } from "../lib/lovable-error-reporting";
 import { Header } from "../components/site/Header";
 import { Footer } from "../components/site/Footer";
 import { FloatingButtons } from "../components/site/FloatingButtons";
@@ -36,9 +35,6 @@ function NotFoundComponent() {
 function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
   console.error(error);
   const router = useRouter();
-  useEffect(() => {
-    reportLovableError(error, { boundary: "tanstack_root_error_component" });
-  }, [error]);
 
   return (
     <div className="flex min-h-screen items-center justify-center bg-background px-4">
@@ -66,17 +62,30 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
+      { name: "theme-color", content: "#000000" },
+      { name: "robots", content: "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" },
       { title: "Guzel Travels — Flights, Visa, Umrah & Car Rental in Lahore" },
-      { name: "description", content: "Guzel Travels offers cheap flights, visa consultancy, Umrah packages, and car rentals in Lahore, Pakistan. Restart your travels with confidence." },
+      { name: "description", content: "Guzel Travels offers cheap flights, visa consultancy, Umrah packages, and car rentals in Lahore, Pakistan. Your trusted travel partner for all your journey needs." },
+      { name: "keywords", content: "flights booking, visa consultancy, Umrah packages, car rental, Lahore, Pakistan, travel agency" },
       { name: "author", content: "Guzel Travels" },
-      { property: "og:title", content: "Guzel Travels — Flights, Visa, Umrah & Car Rental in Lahore" },
-      { property: "og:description", content: "Guzel Travels offers cheap flights, visa consultancy, Umrah packages, and car rentals in Lahore, Pakistan. Restart your travels with confidence." },
+      { name: "image", content: "/favicon.ico" },
       { property: "og:type", content: "website" },
+      { property: "og:locale", content: "en_US" },
+      { property: "og:title", content: "Guzel Travels — Your Trusted Travel Partner" },
+      { property: "og:description", content: "Complete travel solutions: flights, visa consultancy, Umrah packages, and car rentals in Lahore, Pakistan." },
+      { property: "og:url", content: "https://guzel-travels.com" },
+      { property: "og:site_name", content: "Guzel Travels" },
+      { property: "og:image", content: "/logo.png" },
+      { property: "og:image:width", content: "1200" },
+      { property: "og:image:height", content: "630" },
       { name: "twitter:card", content: "summary_large_image" },
-      { name: "twitter:title", content: "Guzel Travels — Flights, Visa, Umrah & Car Rental in Lahore" },
-      { name: "twitter:description", content: "Guzel Travels offers cheap flights, visa consultancy, Umrah packages, and car rentals in Lahore, Pakistan. Restart your travels with confidence." },
-      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/4438aba3-8ac0-4ff9-a2ed-a57142d95f85/id-preview-db7dd9ac--6ab1008b-3e59-49f1-b7f7-6aab0be3edf6.lovable.app-1781114211824.png" },
-      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/4438aba3-8ac0-4ff9-a2ed-a57142d95f85/id-preview-db7dd9ac--6ab1008b-3e59-49f1-b7f7-6aab0be3edf6.lovable.app-1781114211824.png" },
+      { name: "twitter:title", content: "Guzel Travels — Your Trusted Travel Partner" },
+      { name: "twitter:description", content: "Complete travel solutions: flights, visa consultancy, Umrah packages, and car rentals in Lahore, Pakistan." },
+      { name: "twitter:image", content: "/logo.png" },
+      { name: "twitter:creator", content: "@GuzelTravels" },
+      { name: "mobile-web-app-capable", content: "yes" },
+      { name: "apple-mobile-web-app-capable", content: "yes" },
+      { name: "apple-mobile-web-app-status-bar-style", content: "black" },
     ],
     links: [
       { rel: "stylesheet", href: appCss },
@@ -99,6 +108,50 @@ function RootShell({ children }: { children: ReactNode }) {
     <html lang="en">
       <head>
         <HeadContent />
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "LocalBusiness",
+            "name": "Guzel Travels",
+            "image": "https://guzel-travels.com/gts-logo.svg",
+            "description": "Complete travel solutions: flights booking, visa consultancy, Umrah packages, and car rentals in Lahore, Pakistan",
+            "url": "https://guzel-travels.com",
+            "telephone": "+923021400045",
+            "address": {
+              "@type": "PostalAddress",
+              "addressLocality": "Lahore",
+              "addressRegion": "Punjab",
+              "addressCountry": "PK"
+            },
+            "sameAs": [
+              "https://www.facebook.com/guzel-travels",
+              "https://www.instagram.com/guzel-travels",
+              "https://www.twitter.com/GuzelTravels"
+            ],
+            "service": [
+              {
+                "@type": "Service",
+                "name": "Flight Booking",
+                "description": "Book flights worldwide at competitive prices"
+              },
+              {
+                "@type": "Service",
+                "name": "Visa Consultancy",
+                "description": "Professional visa application assistance"
+              },
+              {
+                "@type": "Service",
+                "name": "Umrah Packages",
+                "description": "Complete Umrah packages with accommodation and transport"
+              },
+              {
+                "@type": "Service",
+                "name": "Car Rental",
+                "description": "Affordable car rental services in Lahore"
+              }
+            ]
+          })}
+        </script>
       </head>
       <body>
         {children}
