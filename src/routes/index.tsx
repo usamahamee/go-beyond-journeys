@@ -3,24 +3,53 @@ import { Plane, FileCheck2, Compass, Car, ArrowRight, ShieldCheck, Award, Headse
 import { QuoteForm } from "@/components/site/QuoteForm";
 import { Reveal } from "@/components/site/Reveal";
 import { FAQ } from "@/components/site/FAQ";
+import { HeroSlider } from "@/components/site/HeroSlider";
+
+const homeJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "TravelAgency",
+  name: "Guzel Travels",
+  url: "https://go-beyond-journeys.lovable.app/",
+  telephone: "+92-302-1400045",
+  email: "info@guzeltravels.com",
+  address: {
+    "@type": "PostalAddress",
+    streetAddress: "Plot No 66, Usman Block, Near LMDC, Canal Bank",
+    addressLocality: "Lahore",
+    addressCountry: "PK",
+  },
+  sameAs: [
+    "https://web.facebook.com/Guzeltravels",
+    "https://www.instagram.com/guzeltravels/",
+  ],
+  areaServed: "PK",
+  priceRange: "$$",
+};
 
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Guzel Travels — Restart Your Traveling With Confidence" },
+      { title: "Guzel Travels — Flights, Visa, Umrah & Car Rental in Lahore" },
       { name: "description", content: "Lahore-based travel agency offering flight booking, visa consultancy, Umrah packages and car rentals. 500+ projects, 5+ years of trusted service." },
-      { property: "og:title", content: "Guzel Travels — Restart Your Traveling With Confidence" },
+      { property: "og:title", content: "Guzel Travels — Flights, Visa, Umrah & Car Rental in Lahore" },
       { property: "og:description", content: "Flight booking, visa, Umrah packages and car rentals in Lahore." },
       { property: "og:url", content: "/" },
-      { name: "twitter:title", content: "Guzel Travels — Restart Your Traveling With Confidence" },
+      { name: "twitter:title", content: "Guzel Travels — Flights, Visa, Umrah & Car Rental in Lahore" },
       { name: "twitter:description", content: "Flight booking, visa, Umrah packages and car rentals in Lahore." },
     ],
     links: [
       { rel: "canonical", href: "/" },
     ],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify(homeJsonLd),
+      },
+    ],
   }),
   component: HomePage,
 });
+
 
 const services = [
   { icon: Plane, title: "Flight Booking", to: "/flight-booking", desc: "Real-time domestic & international flights, complimentary check-in support, best seats — every time." },
