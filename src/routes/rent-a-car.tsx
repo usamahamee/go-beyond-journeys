@@ -1,6 +1,9 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { Car, Sparkles, Wallet, ArrowRight } from "lucide-react";
 import { Reveal } from "@/components/site/Reveal";
+import { PageHero } from "@/components/site/PageHero";
+import heroCar from "@/assets/hero-car.jpg";
+
 
 export const Route = createFileRoute("/rent-a-car")({
   head: () => ({
@@ -32,15 +35,16 @@ const cars = [
 function RentPage() {
   return (
     <>
-      <section className="hero">
-        <div className="mx-auto max-w-7xl px-6 py-20 md:py-28 text-center">
-          <p className="tagline text-accent mb-3">Car Rental</p>
-          <h1 className="hero-title mb-5">Rent a Car in Lahore<br />With Guzel Travels</h1>
-          <p className="font-subhead text-xl text-white/85 max-w-2xl mx-auto">
-            Top-notch car rental services with skilled drivers, well-versed in Lahore's routes — smooth journeys, guaranteed.
-          </p>
-        </div>
-      </section>
+      <PageHero
+        image={heroCar}
+        alt="Luxury black SUV on a scenic road at sunset"
+        kicker="Car Rental"
+        title={<>Rent a Car in Lahore<br />With Guzel Travels</>}
+        subtitle="Top-notch car rental services with skilled drivers, well-versed in Lahore's routes — smooth journeys, guaranteed."
+      >
+        <Link to="/contact" className="btn btn--accent">Reserve Your Car <ArrowRight className="h-4 w-4" /></Link>
+      </PageHero>
+
 
       <section className="py-20">
         <div className="mx-auto max-w-7xl px-6 grid lg:grid-cols-2 gap-12 items-start">

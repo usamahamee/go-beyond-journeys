@@ -3,24 +3,53 @@ import { Plane, FileCheck2, Compass, Car, ArrowRight, ShieldCheck, Award, Headse
 import { QuoteForm } from "@/components/site/QuoteForm";
 import { Reveal } from "@/components/site/Reveal";
 import { FAQ } from "@/components/site/FAQ";
+import { HeroSlider } from "@/components/site/HeroSlider";
+
+const homeJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "TravelAgency",
+  name: "Guzel Travels",
+  url: "https://go-beyond-journeys.lovable.app/",
+  telephone: "+92-302-1400045",
+  email: "info@guzeltravels.com",
+  address: {
+    "@type": "PostalAddress",
+    streetAddress: "Plot No 66, Usman Block, Near LMDC, Canal Bank",
+    addressLocality: "Lahore",
+    addressCountry: "PK",
+  },
+  sameAs: [
+    "https://web.facebook.com/Guzeltravels",
+    "https://www.instagram.com/guzeltravels/",
+  ],
+  areaServed: "PK",
+  priceRange: "$$",
+};
 
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Guzel Travels — Restart Your Traveling With Confidence" },
+      { title: "Guzel Travels — Flights, Visa, Umrah & Car Rental in Lahore" },
       { name: "description", content: "Lahore-based travel agency offering flight booking, visa consultancy, Umrah packages and car rentals. 500+ projects, 5+ years of trusted service." },
-      { property: "og:title", content: "Guzel Travels — Restart Your Traveling With Confidence" },
+      { property: "og:title", content: "Guzel Travels — Flights, Visa, Umrah & Car Rental in Lahore" },
       { property: "og:description", content: "Flight booking, visa, Umrah packages and car rentals in Lahore." },
       { property: "og:url", content: "/" },
-      { name: "twitter:title", content: "Guzel Travels — Restart Your Traveling With Confidence" },
+      { name: "twitter:title", content: "Guzel Travels — Flights, Visa, Umrah & Car Rental in Lahore" },
       { name: "twitter:description", content: "Flight booking, visa, Umrah packages and car rentals in Lahore." },
     ],
     links: [
       { rel: "canonical", href: "/" },
     ],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify(homeJsonLd),
+      },
+    ],
   }),
   component: HomePage,
 });
+
 
 const services = [
   { icon: Plane, title: "Flight Booking", to: "/flight-booking", desc: "Real-time domestic & international flights, complimentary check-in support, best seats — every time." },
@@ -38,28 +67,9 @@ const faq = [
 function HomePage() {
   return (
     <>
-      {/* HERO */}
-      <section className="hero">
-        <div className="mx-auto max-w-7xl px-6 py-24 md:py-36 text-center relative">
-          <Reveal>
-            <p className="tagline text-accent mb-4">Welcome to Guzel Travels</p>
-            <h1 className="hero-title mb-6">
-              Restart Your Traveling<br />With Confidence
-            </h1>
-            <p className="font-subhead text-xl md:text-2xl text-white/85 max-w-2xl mx-auto mb-10 leading-relaxed">
-              From cheap flights to spiritual Umrah journeys, luxury rentals to global visas — your trusted Lahore-based travel partner.
-            </p>
-            <div className="flex flex-wrap justify-center gap-4">
-              <Link to="/flight-booking" className="btn btn--accent">
-                Explore Services <ArrowRight className="h-4 w-4" />
-              </Link>
-              <Link to="/contact" className="btn btn--outline border-white/40 text-white hover:bg-white hover:text-primary">
-                Contact Us
-              </Link>
-            </div>
-          </Reveal>
-        </div>
-      </section>
+      {/* HERO SLIDER */}
+      <HeroSlider />
+
 
       {/* STATS */}
       <section className="bg-surface py-16 md:py-20">

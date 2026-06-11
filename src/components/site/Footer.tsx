@@ -12,13 +12,13 @@ export function Footer() {
             <div>
               <p className="text-accent font-medium mb-1 uppercase tracking-wider text-xs">Call Us</p>
               <a href="tel:+923021400045" className="hover:text-accent transition inline-flex items-center gap-2">
-                <Phone className="h-4 w-4" /> +92 302 1400045
+                <Phone className="h-4 w-4" /><span>+92 302 1400045</span>
               </a>
             </div>
             <div>
               <p className="text-accent font-medium mb-1 uppercase tracking-wider text-xs">Email Us</p>
               <a href="mailto:info@guzeltravels.com" className="hover:text-accent transition inline-flex items-center gap-2">
-                <Mail className="h-4 w-4" /> info@guzeltravels.com
+                <Mail className="h-4 w-4" /><span>info@guzeltravels.com</span>
               </a>
             </div>
           </div>

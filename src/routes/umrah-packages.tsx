@@ -1,6 +1,9 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { Plane, Bus, Hotel, BadgeCheck, Check, ArrowRight } from "lucide-react";
 import { Reveal } from "@/components/site/Reveal";
+import { PageHero } from "@/components/site/PageHero";
+import heroUmrah from "@/assets/hero-umrah.jpg";
+
 
 export const Route = createFileRoute("/umrah-packages")({
   head: () => ({
@@ -38,15 +41,16 @@ const includes = [
 function UmrahPage() {
   return (
     <>
-      <section className="hero">
-        <div className="mx-auto max-w-7xl px-6 py-20 md:py-28 text-center">
-          <p className="tagline text-accent mb-3">Pilgrimage</p>
-          <h1 className="hero-title mb-5">Umrah Packages</h1>
-          <p className="font-subhead text-xl text-white/85 max-w-2xl mx-auto">
-            A transformative spiritual journey from Pakistan to the blessed cities of Makkah and Madinah.
-          </p>
-        </div>
-      </section>
+      <PageHero
+        image={heroUmrah}
+        alt="The Kaaba in Makkah at golden hour with pilgrims"
+        kicker="Pilgrimage"
+        title="Umrah Packages"
+        subtitle="A transformative spiritual journey from Pakistan to the blessed cities of Makkah and Madinah."
+      >
+        <Link to="/contact" className="btn btn--accent">Book Umrah <ArrowRight className="h-4 w-4" /></Link>
+      </PageHero>
+
 
       <section className="py-20">
         <div className="mx-auto max-w-7xl px-6 grid lg:grid-cols-2 gap-12 items-start">
