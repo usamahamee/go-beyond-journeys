@@ -44,16 +44,11 @@ export function Header() {
         <div className="flex h-20 items-center justify-between">
           {/* Logo */}
           <Link to="/" className="flex items-center gap-3" onClick={() => setOpen(false)}>
-            <img src="/gts-logo.svg" alt="Guzel Travels" className="h-12 w-auto" />
+            <img src="/gts-logo.png" className="h-50 w-auto" />
             <div className="flex flex-col leading-none">
-              <span className="font-hero font-bold text-white text-lg tracking-[0.15em]">
-                GUZEL
-              </span>
-              <span className="font-subhead text-accent text-xs tracking-[0.2em] uppercase">
-                Travels
-              </span>
             </div>
           </Link>
+          
 
           {/* Desktop nav */}
           <nav className="hidden lg:flex items-center gap-8">
