@@ -67,28 +67,9 @@ const faq = [
 function HomePage() {
   return (
     <>
-      {/* HERO */}
-      <section className="hero">
-        <div className="mx-auto max-w-7xl px-6 py-24 md:py-36 text-center relative">
-          <Reveal>
-            <p className="tagline text-accent mb-4">Welcome to Guzel Travels</p>
-            <h1 className="hero-title mb-6">
-              Restart Your Traveling<br />With Confidence
-            </h1>
-            <p className="font-subhead text-xl md:text-2xl text-white/85 max-w-2xl mx-auto mb-10 leading-relaxed">
-              From cheap flights to spiritual Umrah journeys, luxury rentals to global visas — your trusted Lahore-based travel partner.
-            </p>
-            <div className="flex flex-wrap justify-center gap-4">
-              <Link to="/flight-booking" className="btn btn--accent">
-                Explore Services <ArrowRight className="h-4 w-4" />
-              </Link>
-              <Link to="/contact" className="btn btn--outline border-white/40 text-white hover:bg-white hover:text-primary">
-                Contact Us
-              </Link>
-            </div>
-          </Reveal>
-        </div>
-      </section>
+      {/* HERO SLIDER */}
+      <HeroSlider />
+
 
       {/* STATS */}
       <section className="bg-surface py-16 md:py-20">
